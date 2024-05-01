@@ -17,9 +17,11 @@ public class ListArray<T> implements TDAList<T> {
 	@Override
 	public int length() {
 		int cont = 0;
-		for(T index : array)
-			if(index != null)
+		for(T index : array) {
+			if(index != null) {
 				cont++;
+			}
+		}
 		return cont;
 	}
 
@@ -27,8 +29,9 @@ public class ListArray<T> implements TDAList<T> {
 	// del arreglo como nulo
 	@Override
 	public void destroyList() {
-		for(int i = 0; i < array.length; i++)
+		for(int i = 0; i < array.length; i++) {
 			array[i] = null;
+		}
 		System.out.print("Lista destruida");
 	}
 
@@ -36,9 +39,11 @@ public class ListArray<T> implements TDAList<T> {
 	// método equals para verificar si son iguales
 	@Override
 	public int search(T x) {
-		for(int i = 0; i < array.length; i++)
-			if(array[i] != null && array[i].equals(x))
+		for(int i = 0; i < array.length; i++) {
+			if(array[i] != null && array[i].equals(x)) {
 				return i;
+			}
+		}
 		return -1;
 	}
 
@@ -46,38 +51,47 @@ public class ListArray<T> implements TDAList<T> {
 	// desplazando los elementos existentes hacia la derecha
 	@Override
 	public void insertFirst(T x) {
-		if(length() == array.length)
+		if(length() == array.length) {
 			System.out.println("No hay espacio.");
-		else
-			for(int i = array.length - 1; i > 0; i--)
+		}
+		else {
+			for(int i = array.length - 1; i > 0; i--) {
 				array[i] = array[i-1];
+			}
 			array[0] = x;
+		}
 	}
 
 	// Inserta un elemento al final de la lista
 	// si hay espacio disponible en el arreglo
 	@Override
 	public void insertLast(T x) {
-		if(length() == array.length)
+		if(length() == array.length) {
 			System.out.println("No hay espacio.");
-		else
+		}
+		else {
 			array[length()] = x;
+		}
 	}
 
 	// Elimina un elemento de la lista estableciéndolo como nulo
 	@Override
 	public void removeNode(T x) {
 		int index = search(x);
-		if(index >= 0)
-			for(int i = index; i < array.length -1; i++)
+		if(index >= 0) {
+			for(int i = index; i < array.length -1; i++) {
 				array[i] = array[i + 1];
+			}
 			array[array.length - 1] = null;
+		}
 	}
 	
 	// Imprime todos los elementos de la lista
 	public void print() {
-		for(T index : array)
-			if(index != null)
+		for(T index : array) {
+			if(index != null) {
 				System.out.println(index);
+			}
+		}
 	}
 }
