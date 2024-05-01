@@ -65,26 +65,46 @@ public class LinkedList<T> implements TDAList<T> {
 	}
 
 	// Inserta un elemento al final de la lista
-	@Override
+	/*@Override
 	public void insertLast(T x) {
 		Node <T> node = new Node<T>(x);
 		Node <T> aux = this.first;
-		if(this.first == null)
+		if(this.first == null) {
 			this.first = node;
-		else
-			while(aux.getNext() != null)
+		}
+		else {
+			while(aux.getNext() != null) {
 				aux = aux.getNext();
 			aux.setNext(node);
 			node.setNext(null);
+			}
+		}
+	}*/
+	@Override
+	public void insertLast(T x) {
+	    Node<T> node = new Node<>(x);
+	    Node<T> aux = this.first;
+
+	    if(aux == null) {
+	        this.first = node;
+	    }
+	    else {
+	        while(aux.getNext() != null) {
+	            aux = aux.getNext();
+	        }
+	        aux.setNext(node);
+	    }
 	}
+
 
 	// Función para eliminar deleteItem de la lista
 	@Override
 	public void removeNode(T x) {
 		int pos = search(x);
 		int cont = length();
-		if(pos == -1)
+		if(pos == -1) {
 			System.out.print("Elemento no existe");
+		}
 		else if(pos == cont - 1) {
 			int i = 0;
 			Node <T> aux = this.first;
@@ -94,8 +114,9 @@ public class LinkedList<T> implements TDAList<T> {
 			}
 			aux.setNext(null);
 		}
-		else if(pos == 0)
+		else if(pos == 0) {
 			this.first = this.first.getNext();
+		}
 		else {
 			int i = 0;
 			Node <T> aux = this.first;
@@ -113,9 +134,10 @@ public class LinkedList<T> implements TDAList<T> {
 		while(aux != null) {
 			System.out.print(aux.getData());
 			aux = aux.getNext();
-			if(aux != null)
+			if(aux != null) {
 				System.out.print(" -> ");
+			}
 		}
-		System.out.println();
+		System.out.println("");
 	}
 }

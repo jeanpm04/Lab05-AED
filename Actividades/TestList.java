@@ -8,6 +8,7 @@ public class TestList {
 		list.insertFirst(new Person("Ana", "Choque", 22));
 		list.insertFirst(new Person("Carlos", "Carnero", 20));
 		list.insertFirst(new Person("Anthony", "Delgado", 22));
+		list.print();
 		
 		System.out.print("Lista vacia? " + list.isEmptyList());
 		System.out.print("\nTamanio de la lista... " + list.length());
@@ -37,6 +38,7 @@ public class TestList {
 		list1.insertFirst(new Person("Ana", "Choque", 22));
 		list1.insertFirst(new Person("Carlos", "Carnero", 20));
 		list1.insertFirst(new Person("Anthony", "Delgado", 22));
+		list1.print();
 		
 		System.out.print("Lista vacia? " + list1.isEmptyList());
 		System.out.print("\nTamanio de la lista... " + list1.length());
